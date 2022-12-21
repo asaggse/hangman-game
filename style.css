@@ -1,0 +1,60 @@
+body {
+   font-family: sans-serif;
+}
+
+#word {
+   font-size: 2em;
+}
+
+#guesses-remaining {
+   color: red;
+}
+
+#wrong-guesses {
+   color: darkred;
+}
+
+#scaffold {
+   border: 2px solid black;
+   width: 250px;
+   height: 300px;
+   position: relative;
+}
+
+#scaffold .body-part {
+   width: 10px;
+   height: 10px;
+   border-radius: 50%;
+   background-color: black;
+   position: absolute;
+}
+
+#scaffold .head {
+   top: 10px;
+   left: 100px;
+}
+
+#scaffold .torso {
+   top: 30px;
+   left: 110px;
+}
+
+#scaffold .left-arm {
+   top: 50px;
+   left: 90px;
+}
+
+#scaffold .right-arm {
+   top: 50px;
+   left: 130px;
+}
+
+#scaffold .left-leg {
+   top: 70px;
+   left: 100px;
+}
+
+#scaffold .right-leg {
+   top: 70px;
+   left: 120px;
+}
