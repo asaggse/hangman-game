@@ -5,10 +5,12 @@ let revealedWord = "";
 for (let i = 0; i < word.length; i++) {
    revealedWord += "_";
 }
+let wrongGuesses = [];
 
 // Update the page with the initial game state
 document.getElementById("word").innerHTML = revealedWord;
 document.getElementById("guesses-remaining").innerHTML = `Guesses remaining: ${remainingGuesses}`;
+document.getElementById("wrong-guesses").innerHTML = `Wrong guesses: ${wrongGuesses.join(", ")}`;
 
 // Handle the player's guess
 document.getElementById("guess-form").addEventListener("submit", (event) => {
@@ -29,6 +31,7 @@ document.getElementById("guess-form").addEventListener("submit", (event) => {
    // Update the game state based on the guess
    if (!correctGuess) {
       remainingGuesses--;
+      wrongGuesses.push(guess);
    }
 
    // Check if the player has won or lost the game
@@ -44,6 +47,7 @@ document.getElementById("guess-form").addEventListener("submit", (event) => {
    // Update the page with the current game state
    document.getElementById("word").innerHTML = revealedWord;
    document.getElementById("guesses-remaining").innerHTML = `Guesses remaining: ${remainingGuesses}`;
+   document.getElementById("wrong-guesses").innerHTML = `Wrong guesses: ${wrongGuesses.join(", ")}`;
    if (gameWon) {
       document.getElementById("scaffold").innerHTML = "You won!";
    }
