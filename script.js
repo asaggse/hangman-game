@@ -6,6 +6,7 @@ for (let i = 0; i < word.length; i++) {
    revealedWord += "_";
 }
 let wrongGuesses = [];
+let usedGuesses = [];
 
 // Update the page with the initial game state
 document.getElementById("word").innerHTML = revealedWord;
@@ -19,6 +20,12 @@ document.getElementById("guess-form").addEventListener("submit", (event) => {
    // Get the player's guess
    const guess = document.getElementById("guess-input").value;
 
+   // Check if the letter has already been guessed
+   if (usedGuesses.includes(guess)) {
+      alert("You've already guessed that letter. Please try a different letter.");
+      return;
+   }
+
    // Check if the letter is in the word
    let correctGuess = false;
    for (let i = 0; i < word.length; i++) {
@@ -29,6 +36,7 @@ document.getElementById("guess-form").addEventListener("submit", (event) => {
    }
 
    // Update the game state based on the guess
+   usedGuesses.push(guess);
    if (!correctGuess) {
       remainingGuesses--;
       wrongGuesses.push(guess);
